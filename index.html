@@ -3,48 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md. Ashraful Islam Sumon | Portfolio</title>
+    <title>Md. Ashraful Islam Sumon | Academic Portfolio</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
+        body { font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+        
+        /* Custom Styles */
+        .glass-nav { 
+            background: rgba(255, 255, 255, 0.90); 
+            backdrop-filter: blur(12px); 
+            border-bottom: 1px solid rgba(0,0,0,0.05); 
         }
-        html {
-            scroll-behavior: smooth;
+        
+        /* Profile Image Animation */
+        .blob-img { 
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; 
+            transition: all 1s ease-in-out; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            animation: morph 8s ease-in-out infinite;
         }
-        /* Custom Animations */
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out;
+        
+        @keyframes morph {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
         }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .blob-img {
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            transition: border-radius 1s ease-in-out;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-        .blob-img:hover {
-            border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-        }
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
+
+        .section-title { position: relative; display: inline-block; margin-bottom: 2rem; }
+        .section-title::after { content: ''; display: block; width: 50%; height: 4px; background: #570df8; margin: 10px auto 0; border-radius: 2px; }
     </style>
 </head>
-<body class="bg-base-200 text-slate-800">
+<body class="bg-slate-50 text-slate-800">
 
-    <div class="navbar glass-nav fixed top-0 z-50 px-4 lg:px-10 h-20">
+    <div class="navbar glass-nav fixed top-0 z-50 px-4 lg:px-10 h-20 transition-all duration-300">
         <div class="navbar-start">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -54,226 +53,317 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#education">Education</a></li>
-                    <li><a href="#courses">Expertise</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#publications">Publications</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
-            <a href="#" class="btn btn-ghost text-2xl font-bold text-primary">A.I. Sumon</a>
+            <a href="#" class="btn btn-ghost text-xl md:text-2xl font-bold text-primary tracking-tighter">A.I. Sumon</a>
         </div>
         <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal px-1 font-semibold text-slate-600 gap-2">
-                <li><a href="#about" class="hover:text-primary">About</a></li>
-                <li><a href="#experience" class="hover:text-primary">Experience</a></li>
-                <li><a href="#education" class="hover:text-primary">Education</a></li>
-                <li><a href="#courses" class="hover:text-primary">Expertise</a></li>
-                <li><a href="#contact" class="hover:text-primary">Contact</a></li>
+            <ul class="menu menu-horizontal px-1 font-medium text-slate-600 gap-2">
+                <li><a href="#about" class="hover:text-primary transition-colors">About</a></li>
+                <li><a href="#experience" class="hover:text-primary transition-colors">Experience</a></li>
+                <li><a href="#education" class="hover:text-primary transition-colors">Education</a></li>
+                <li><a href="#research" class="hover:text-primary transition-colors">Interests</a></li>
+                <li><a href="#publications" class="hover:text-primary transition-colors">Publications</a></li>
+                <li><a href="#contact" class="hover:text-primary transition-colors">Contact</a></li>
             </ul>
         </div>
         <div class="navbar-end">
-            <a href="#contact" class="btn btn-primary text-white rounded-full px-6 shadow-lg hover:shadow-xl transition-all">Hire Me</a>
+            <a href="#">
+                <i ></i>
+            </a>
         </div>
     </div>
 
-    <div class="hero min-h-screen bg-gradient-to-br from-base-100 to-base-300 pt-20" id="about">
+    <div class="hero min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 pt-20" id="about">
         <div class="hero-content flex-col lg:flex-row-reverse gap-12 items-center">
             
-            <div class="relative fade-in-up">
-                <div class="absolute -top-10 -right-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-pulse"></div>
-                <div class="absolute -bottom-10 -left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-pulse delay-700"></div>
-                
-                <img src="Photo/dp.jpg" 
-                     class="max-w-xs md:max-w-sm relative z-10 blob-img border-4 border-white object-cover" 
-                     alt="Md. Ashraful Islam Sumon" />
+            <div class="relative" data-aos="fade-left" data-aos-duration="1500">
+                <div class="absolute -top-10 -right-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse"></div>
+                <div class="absolute -bottom-10 -left-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse delay-1000"></div>
+                <img src="Photo/dp.jpg" class="max-w-xs md:max-w-sm relative z-10 blob-img border-4 border-white object-cover" alt="Md. Ashraful Islam Sumon" />
             </div>
 
-            <div class="text-center lg:text-left max-w-2xl fade-in-up">
-                <div class="badge badge-primary badge-outline mb-4 p-3 font-semibold">Statistician & Senior Lecturer</div>
-                <h1 class="text-5xl lg:text-6xl font-bold leading-tight text-slate-800">
-                    Md. Ashraful Islam <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Sumon</span>
+            <div class="text-center lg:text-left max-w-3xl" data-aos="fade-right" data-aos-duration="1500">
+                <div class="badge badge-primary badge-outline mb-4 p-3 font-semibold tracking-wide uppercase text-xs">Statistician & Educator</div>
+                <h1 class="text-4xl lg:text-6xl font-bold leading-tight text-slate-900">
+                    Md. Ashraful Islam <span class="text-primary">Sumon</span>
                 </h1>
-                <p class="py-6 text-lg text-slate-600 leading-relaxed">
-                    Faculty at <span class="font-bold text-primary">Port City International University</span>. 
-                    Specializing in <span class="font-semibold">Applied Statistics</span>, Data Analysis, and Academic Research. 
-                    I bridge the gap between complex data and actionable insights.
-                </p>
-                <div class="flex gap-4 justify-center lg:justify-start">
-                    <a href="#contact" class="btn btn-primary text-white shadow-lg hover:-translate-y-1 transition-transform">
-                        <i class="fa-solid fa-paper-plane"></i> Contact Me
-                    </a>
-                    <a href="#education" class="btn btn-outline hover:bg-slate-200 border-slate-300">
-                        <i class="fa-solid fa-user-graduate"></i> Academic Info
-                    </a>
-                </div>
+                <h2 class="text-xl lg:text-2xl text-slate-600 mt-4 font-medium">Department of Natural Science</h2>
+                <h3 class="text-lg text-slate-500 font-semibold">Port City International University</h3>
                 
-                <div class="flex gap-8 justify-center lg:justify-start mt-10 border-t border-gray-300 pt-6">
-                    <div>
-                        <span class="text-3xl font-bold text-slate-800">5+</span>
-                        <p class="text-sm text-slate-500">Years Experience</p>
-                    </div>
-                    <div>
-                        <span class="text-3xl font-bold text-slate-800">10+</span>
-                        <p class="text-sm text-slate-500">Research Papers</p>
-                    </div>
+                <p class="py-6 text-lg text-slate-600 leading-relaxed max-w-2xl">
+                    Dedicated to integrating statistical theory, data science, and applied research to address real-world challenges in public health and environmental studies.
+                </p>
+
+                <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                    <a href="#contact" class="btn btn-primary text-white shadow-lg hover:-translate-y-1 transition-transform rounded-full px-8">
+                        <i class="fa-solid fa-envelope"></i> Email Me
+                    </a>
+                    <a href="#publications" class="btn btn-outline rounded-full px-8 hover:bg-slate-100">
+                        <i class="fa-solid fa-book-open"></i> View Publications
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <section id="experience" class="py-20 bg-white">
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card bg-base-100 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-body">
+                        <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-2xl mb-2">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h3 class="card-title text-xl mb-2">Professional Profile</h3>
+                        <p class="text-sm text-gray-600 text-justify leading-relaxed">
+                            A Senior Lecturer of Statistics engaged in academia since 2020. Integrating statistical theory and applied research for evidence-based decision making.
+                        </p>
+                    </div>
+                </div>
+                <div class="card bg-base-100 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-body">
+                        <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary text-2xl mb-2">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <h3 class="card-title text-xl mb-2">Teaching Philosophy</h3>
+                        <p class="text-sm text-gray-600 text-justify leading-relaxed">
+                            Building analytical skills through active learning. Encouraging open-source programming (R, Python, SPSS) to make statistics practical.
+                        </p>
+                    </div>
+                </div>
+                <div class="card bg-base-100 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-body">
+                        <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-accent text-2xl mb-2">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="card-title text-xl mb-2">Academic Goals</h3>
+                        <p class="text-sm text-gray-600 text-justify leading-relaxed">
+                            Collaborating with global research networks. Pursuing doctoral research and contributing to interdisciplinary data science projects.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 bg-slate-50">
         <div class="container mx-auto px-4 max-w-5xl">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-slate-800">Professional Experience</h2>
-                <div class="w-24 h-1 bg-primary mx-auto mt-4 rounded"></div>
+            <div class="text-center mb-16" data-aos="fade-down">
+                <h2 class="text-4xl font-bold text-slate-800 section-title">Professional Experience</h2>
             </div>
 
             <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
                 <li>
                     <div class="timeline-middle">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5 text-primary"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                        <div class="w-5 h-5 bg-primary rounded-full ring ring-primary ring-offset-2"></div>
                     </div>
-                    <div class="timeline-start md:text-end mb-10 md:mb-0">
-                        <time class="font-mono italic text-slate-500">Present</time>
+                    <div class="timeline-start md:text-end mb-10 md:mb-0" data-aos="fade-right">
+                        <div class="font-mono italic text-slate-500 font-bold mb-2 md:mb-0">Sep 2024 - Present</div>
                     </div>
-                    <div class="timeline-end mb-10">
-                        <div class="card bg-base-100 shadow-lg border border-gray-100 p-6">
-                            <h3 class="text-lg font-black text-primary">Senior Lecturer</h3>
-                            <p class="font-semibold text-slate-700">Department of Natural Science</p>
-                            <p class="text-sm text-slate-500 mt-1">Port City International University</p>
-                            <p class="text-slate-600 mt-3 text-sm">Conducting courses on Statistics, mentoring students, and supervising research projects.</p>
+                    <div class="timeline-end mb-10 w-full md:w-auto" data-aos="fade-left">
+                        <div class="card bg-white shadow-md p-6 border-l-4 border-primary hover:shadow-lg transition-all">
+                            <h3 class="text-lg font-bold text-slate-800">Senior Lecturer (Statistics)</h3>
+                            <p class="text-sm text-slate-500">Port City International University, Chattogram</p>
+                            <p class="text-slate-600 mt-2 text-sm">Dept. of Natural Science</p>
                         </div>
                     </div>
                     <hr class="bg-primary"/>
                 </li>
+                
                 <li>
                     <hr class="bg-primary"/>
                     <div class="timeline-middle">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5 text-gray-400"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                        <div class="w-4 h-4 bg-secondary rounded-full"></div>
                     </div>
-                    <div class="timeline-start md:text-end mb-10">
-                        <div class="card bg-base-100 shadow-lg border border-gray-100 p-6">
-                            <h3 class="text-lg font-black text-slate-700">Lecturer</h3>
-                            <p class="font-semibold text-slate-600">Department of Natural Science</p>
-                            <p class="text-sm text-slate-500 mt-1">Port City International University</p>
-                            <p class="text-slate-600 mt-3 text-sm">Joined as a faculty member and started academic career in teaching Statistics.</p>
+                    <div class="timeline-start md:text-end mb-10 w-full md:w-auto" data-aos="fade-right">
+                         <div class="card bg-white shadow-md p-6 border-l-4 border-secondary hover:shadow-lg transition-all">
+                            <h3 class="text-lg font-bold text-slate-800">Statistics Branch Head</h3>
+                            <p class="text-sm text-slate-500">Port City International University</p>
+                            <p class="text-slate-600 mt-2 text-sm">Leading the statistics division within the Natural Science Dept.</p>
                         </div>
                     </div>
-                    <div class="timeline-end mb-10 md:mb-0">
-                        <time class="font-mono italic text-slate-500">Past</time>
+                    <div class="timeline-end mb-10 md:mb-0" data-aos="fade-left">
+                        <div class="font-mono italic text-slate-500 font-bold mb-2 md:mb-0">Jan 2023 - Present</div>
+                    </div>
+                    <hr class="bg-primary"/>
+                </li>
+
+                <li>
+                    <hr class="bg-primary"/>
+                    <div class="timeline-middle">
+                        <div class="w-3 h-3 bg-gray-400 rounded-full"></div>
+                    </div>
+                    <div class="timeline-start md:text-end mb-10 md:mb-0" data-aos="fade-right">
+                        <div class="font-mono italic text-slate-500 font-bold mb-2 md:mb-0">Sep 2021 - Oct 2024</div>
+                    </div>
+                    <div class="timeline-end mb-10 w-full md:w-auto" data-aos="fade-left">
+                        <div class="card bg-white shadow-md p-6 border border-gray-100 hover:shadow-lg transition-all">
+                            <h3 class="text-lg font-bold text-slate-800">Lecturer (Statistics)</h3>
+                            <p class="text-sm text-slate-500">Port City International University</p>
+                        </div>
                     </div>
                     <hr/>
+                </li>
+
+                <li>
+                    <hr/>
+                    <div class="timeline-middle">
+                        <div class="w-3 h-3 bg-gray-400 rounded-full"></div>
+                    </div>
+                    <div class="timeline-start md:text-end mb-10 w-full md:w-auto" data-aos="fade-right">
+                        <div class="card bg-white shadow-md p-6 border border-gray-100 hover:shadow-lg transition-all">
+                            <h3 class="text-lg font-bold text-slate-800">Lecturer (Statistics)</h3>
+                            <p class="text-sm text-slate-500">Bangabandhu Govt. College, Faridpur</p>
+                        </div>
+                    </div>
+                    <div class="timeline-end mb-10 md:mb-0" data-aos="fade-left">
+                        <div class="font-mono italic text-slate-500 font-bold mb-2 md:mb-0">Jan 2021 - Jul 2021</div>
+                    </div>
                 </li>
             </ul>
         </div>
     </section>
 
-    <section id="education" class="py-20 bg-base-200">
+    <section id="education" class="py-20 bg-white">
         <div class="container mx-auto px-4 max-w-6xl">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-slate-800">Academic Background</h2>
-                <p class="text-slate-500 mt-2">Scholarly Achievements from University of Chittagong</p>
+            <div class="text-center mb-12" data-aos="fade-down">
+                <h2 class="text-4xl font-bold text-slate-800 section-title">Academic Background</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="card bg-white shadow-xl hover:shadow-2xl transition-all duration-300 border-l-4 border-primary">
+                <div class="card bg-base-100 shadow-xl border-t-4 border-primary hover:shadow-2xl transition-all duration-300" data-aos="zoom-in" data-aos-delay="100">
                     <div class="card-body">
-                        <div class="flex items-center gap-4 mb-2">
-                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl font-bold">
-                                <i class="fa-solid fa-graduation-cap"></i>
-                            </div>
+                        <div class="flex flex-col md:flex-row justify-between items-start gap-3">
                             <div>
-                                <h3 class="card-title text-xl">Master of Science (M.S.)</h3>
-                                <p class="text-sm text-gray-500">Department of Statistics</p>
+                                <h3 class="card-title text-xl font-bold">Master of Science (M.S.)</h3>
+                                <p class="text-sm text-gray-500 font-semibold">University of Chittagong</p>
                             </div>
+                            <div class="badge badge-primary text-white p-3 shrink-0">Apr 2018 - Nov 2019</div>
                         </div>
-                        <div class="divider my-0"></div>
-                        <p class="text-gray-700 font-medium">University of Chittagong</p>
-                        <p class="text-sm text-gray-500">Focus on Advanced Statistical Methods & Research Methodology.</p>
+                        <div class="mt-4 space-y-2">
+                            <p><i class="fa-solid fa-graduation-cap text-primary mr-2"></i> Department of Statistics</p>
+                            <p><i class="fa-solid fa-star text-yellow-500 mr-2"></i> CGPA: <span class="font-bold">3.75/4.00</span></p>
+                            <p><i class="fa-solid fa-trophy text-secondary mr-2"></i> Rank: <span class="font-bold">2nd</span> (out of 130)</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card bg-white shadow-xl hover:shadow-2xl transition-all duration-300 border-l-4 border-secondary">
+                <div class="card bg-base-100 shadow-xl border-t-4 border-secondary hover:shadow-2xl transition-all duration-300" data-aos="zoom-in" data-aos-delay="200">
                     <div class="card-body">
-                        <div class="flex items-center gap-4 mb-2">
-                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary text-xl font-bold">
-                                <i class="fa-solid fa-certificate"></i>
-                            </div>
+                         <div class="flex flex-col md:flex-row justify-between items-start gap-3">
                             <div>
-                                <h3 class="card-title text-xl">Bachelor of Science (B.S.)</h3>
-                                <p class="text-sm text-gray-500">Department of Statistics</p>
+                                <h3 class="card-title text-xl font-bold">Bachelor of Science (B.S.)</h3>
+                                <p class="text-sm text-gray-500 font-semibold">University of Chittagong</p>
                             </div>
+                            <div class="badge badge-secondary text-white p-3 shrink-0">Jan 2013 - Mar 2018</div>
                         </div>
-                        <div class="divider my-0"></div>
-                        <p class="text-gray-700 font-medium">University of Chittagong</p>
-                        <p class="text-sm text-gray-500">Graduated with strong fundamentals in Mathematics and Statistics.</p>
+                        <div class="mt-4 space-y-2">
+                            <p><i class="fa-solid fa-graduation-cap text-secondary mr-2"></i> Department of Statistics</p>
+                            <p><i class="fa-solid fa-star text-yellow-500 mr-2"></i> CGPA: <span class="font-bold">3.48/4.00</span></p>
+                            <p><i class="fa-solid fa-trophy text-primary mr-2"></i> Rank: <span class="font-bold">8th</span> (out of 160)</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="courses" class="py-20 bg-white">
+    <section id="research" class="py-20 bg-slate-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-slate-800">Areas of Expertise</h2>
-                <p class="text-slate-500 mt-2">Specialized Topics & Research Interests</p>
+            <div class="text-center mb-12" data-aos="fade-down">
+                <h2 class="text-4xl font-bold text-slate-800 section-title">Research Interests</h2>
+                <p class="text-slate-500">Developing statistical frameworks for evidence-based decision making.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="card bg-base-100 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100">
-                    <figure class="px-10 pt-10">
-                        <i class="fa-solid fa-chart-line text-6xl text-primary opacity-80"></i>
-                    </figure>
-                    <div class="card-body items-center text-center">
-                        <h2 class="card-title text-slate-800">Business Statistics</h2>
-                        <p class="text-slate-500">Analyzing business trends, probability, and decision-making models.</p>
+            <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+                <span class="badge badge-lg py-4 px-6 text-lg bg-white shadow-md text-slate-700 border-primary hover:scale-110 transition-transform cursor-default" data-aos="fade-up" data-aos-delay="50"><i class="fa-solid fa-chart-line mr-2 text-primary"></i> Multivariate Analysis</span>
+                <span class="badge badge-lg py-4 px-6 text-lg bg-white shadow-md text-slate-700 border-secondary hover:scale-110 transition-transform cursor-default" data-aos="fade-up" data-aos-delay="100"><i class="fa-solid fa-clock-rotate-left mr-2 text-secondary"></i> Time Series Modeling</span>
+                <span class="badge badge-lg py-4 px-6 text-lg bg-white shadow-md text-slate-700 border-accent hover:scale-110 transition-transform cursor-default" data-aos="fade-up" data-aos-delay="150"><i class="fa-solid fa-diagram-project mr-2 text-accent"></i> SEM</span>
+                <span class="badge badge-lg py-4 px-6 text-lg bg-white shadow-md text-slate-700 hover:scale-110 transition-transform cursor-default" data-aos="fade-up" data-aos-delay="200"><i class="fa-solid fa-brain mr-2 text-pink-500"></i> Machine Learning</span>
+                <span class="badge badge-lg py-4 px-6 text-lg bg-white shadow-md text-slate-700 hover:scale-110 transition-transform cursor-default" data-aos="fade-up" data-aos-delay="250"><i class="fa-solid fa-leaf mr-2 text-green-500"></i> Environmental Data</span>
+                <span class="badge badge-lg py-4 px-6 text-lg bg-white shadow-md text-slate-700 hover:scale-110 transition-transform cursor-default" data-aos="fade-up" data-aos-delay="300"><i class="fa-solid fa-heart-pulse mr-2 text-red-500"></i> Public Health Analysis</span>
+                <span class="badge badge-lg py-4 px-6 text-lg bg-white shadow-md text-slate-700 hover:scale-110 transition-transform cursor-default" data-aos="fade-up" data-aos-delay="350"><i class="fa-solid fa-code mr-2 text-slate-800"></i> Python & R</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications" class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-12" data-aos="fade-down">
+                <h2 class="text-4xl font-bold text-slate-800 section-title">Selected Publications</h2>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="card bg-base-100 shadow-sm border border-gray-200 hover:border-primary hover:shadow-lg transition-all duration-300" data-aos="fade-up">
+                    <div class="card-body p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 text-primary"><i class="fa-solid fa-scroll fa-xl"></i></div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-800">A Biostatistical Approach to Health Risk Factors Analysis of Chikungunya in Chattogram Metropolitan City</h3>
+                                <p class="text-sm text-gray-500 mt-1">Md. Ashraful Islam, Md. Sha Newaj Hossain, et al. (2025)</p>
+                                <div class="badge badge-ghost badge-sm mt-2">24th International Mathematics Conference (Accepted)</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="card bg-base-100 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100">
-                    <figure class="px-10 pt-10">
-                        <i class="fa-solid fa-superscript text-6xl text-secondary opacity-80"></i>
-                    </figure>
-                    <div class="card-body items-center text-center">
-                        <h2 class="card-title text-slate-800">Applied Math</h2>
-                        <p class="text-slate-500">Mathematical modeling for real-world scientific problems.</p>
+
+                <div class="card bg-base-100 shadow-sm border border-gray-200 hover:border-primary hover:shadow-lg transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-body p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 text-primary"><i class="fa-solid fa-scroll fa-xl"></i></div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-800">The Effect of Women Education on Waiting Time to First Pregnancy of Ever Married Women in Bangladesh</h3>
+                                <p class="text-sm text-gray-500 mt-1">Jahanara Akter Keya & Md. Ashraful Islam (2025)</p>
+                                <div class="badge badge-ghost badge-sm mt-2">International Journal of Sciences: Basic and Applied Research</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="card bg-base-100 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100">
-                    <figure class="px-10 pt-10">
-                        <i class="fa-solid fa-database text-6xl text-accent opacity-80"></i>
-                    </figure>
-                    <div class="card-body items-center text-center">
-                        <h2 class="card-title text-slate-800">Data Analysis</h2>
-                        <p class="text-slate-500">Expertise in SPSS, R Programming, and Quantitative Research.</p>
+
+                <div class="card bg-base-100 shadow-sm border border-gray-200 hover:border-primary hover:shadow-lg transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-body p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 text-primary"><i class="fa-solid fa-scroll fa-xl"></i></div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-800">Investigating purchase and transaction fraud on the internet among youth individuals</h3>
+                                <p class="text-sm text-gray-500 mt-1">Fahmida, J., Islam, M. A., & Rahman, H. (2024)</p>
+                                <div class="badge badge-ghost badge-sm mt-2">International Journal of Scientific and Management Research</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-20 bg-neutral text-neutral-content relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full opacity-10">
-            <i class="fa-solid fa-chart-simple absolute text-9xl top-10 left-10"></i>
-            <i class="fa-solid fa-pi absolute text-9xl bottom-10 right-10"></i>
+    <section id="contact" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-5">
+            <i class="fa-solid fa-chart-pie absolute text-9xl top-10 left-10 animate-pulse"></i>
+            <i class="fa-solid fa-sigma absolute text-9xl bottom-10 right-10 animate-pulse" style="animation-delay: 1s;"></i>
         </div>
 
         <div class="container mx-auto px-4 relative z-10 text-center">
-            <h2 class="text-4xl font-bold mb-8">Let's Connect</h2>
-            <p class="text-lg mb-10 max-w-2xl mx-auto text-gray-300">Available for research collaboration, academic consultancy, and student counseling.</p>
+            <h2 class="text-4xl font-bold mb-8" data-aos="fade-up">Get In Touch</h2>
+            <p class="text-lg mb-10 max-w-2xl mx-auto text-gray-400" data-aos="fade-up" data-aos-delay="100">Available for research collaboration, academic consultancy, and data analysis projects.</p>
             
             <div class="flex flex-col md:flex-row justify-center gap-6">
-                <a href="mailto:sumon@portcity.edu.bd" class="card bg-base-100 text-slate-800 p-6 flex flex-row items-center gap-4 hover:bg-primary hover:text-white transition-colors cursor-pointer min-w-[300px]">
-                    <div class="bg-gray-200 p-3 rounded-full text-primary">
+                <a href="mailto:ashraful.ns@portcity.edu.bd" class="group card bg-white/10 backdrop-blur-md p-6 flex flex-row items-center gap-4 hover:bg-primary transition-all cursor-pointer min-w-[300px] border border-white/10" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="bg-white/20 p-3 rounded-full text-white group-hover:bg-white group-hover:text-primary transition-colors">
                         <i class="fa-solid fa-envelope text-xl"></i>
                     </div>
                     <div class="text-left">
-                        <p class="text-xs uppercase font-bold opacity-70">Email Me</p>
-                        <p class="font-bold">sumon@portcity.edu.bd</p>
+                        <p class="text-xs uppercase font-bold opacity-70">Official Email</p>
+                        <p class="font-bold text-sm md:text-base">ashraful.ns@portcity.edu.bd</p>
                     </div>
                 </a>
 
-                <div class="card bg-base-100 text-slate-800 p-6 flex flex-row items-center gap-4 min-w-[300px]">
-                    <div class="bg-gray-200 p-3 rounded-full text-primary">
-                        <i class="fa-solid fa-building-columns text-xl"></i>
+                <div class="card bg-white/10 backdrop-blur-md p-6 flex flex-row items-center gap-4 min-w-[300px] border border-white/10" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="bg-white/20 p-3 rounded-full text-white">
+                        <i class="fa-solid fa-location-dot text-xl"></i>
                     </div>
                     <div class="text-left">
                         <p class="text-xs uppercase font-bold opacity-70">Office</p>
@@ -284,24 +374,32 @@
         </div>
     </section>
 
-    <footer class="footer footer-center p-10 bg-slate-900 text-slate-300">
-        <nav class="grid grid-flow-col gap-6 font-medium">
-            <a href="#about" class="link link-hover">About</a>
-            <a href="#experience" class="link link-hover">Experience</a>
-            <a href="#education" class="link link-hover">Education</a>
-            <a href="#contact" class="link link-hover">Contact</a>
-        </nav> 
-        <nav>
-            <div class="grid grid-flow-col gap-6 text-3xl">
-                <a href="https://bd.linkedin.com/in/ashraful-islam-sumon" class="hover:text-blue-500 transition-colors"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://www.facebook.com/ashraful.islam.sumon.1995/about" class="hover:text-blue-600 transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" class="hover:text-green-500 transition-colors"><i class="fa-brands fa-researchgate"></i></a>
+    <footer class="footer footer-center p-10 bg-slate-950 text-slate-400 border-t border-slate-800">
+        <div class="grid grid-flow-col gap-6 font-medium">
+            <a href="#about" class="link link-hover hover:text-white transition-colors">About</a>
+            <a href="#experience" class="link link-hover hover:text-white transition-colors">Experience</a>
+            <a href="#publications" class="link link-hover hover:text-white transition-colors">Publications</a>
+            <a href="#contact" class="link link-hover hover:text-white transition-colors">Contact</a>
+        </div> 
+        <div>
+            <div class="grid grid-flow-col gap-6 text-2xl">
+                <a href="https://bd.linkedin.com/in/ashraful-islam-sumon" target="_blank" class="hover:text-blue-500 transition-colors transform hover:scale-110"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/ashraful.islam.sumon.1995/about" target="_blank" class="hover:text-blue-600 transition-colors transform hover:scale-110"><i class="fa-brands fa-facebook"></i></a>
             </div>
-        </nav> 
+        </div> 
         <aside>
-            <p class="text-sm opacity-70">© 2025 Md. Ashraful Islam Sumon. All Rights Reserved.</p>
+            <p class="text-sm opacity-60">© 2025 Md. Ashraful Islam Sumon. All Rights Reserved.</p>
         </aside>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true, // Animation happens only once while scrolling down
+            offset: 100, // Trigger offset in pixels
+            duration: 800, // Animation duration
+            easing: 'ease-out-cubic',
+        });
+    </script>
 </body>
 </html>
